@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Blood-Banking-System/static/css/main.75e4ff10.css",
+    "main.js": "/Blood-Banking-System/static/js/main.e27c1b27.js",
+    "static/js/453.ed55040a.chunk.js": "/Blood-Banking-System/static/js/453.ed55040a.chunk.js",
+    "static/media/img1.jpg": "/Blood-Banking-System/static/media/img1.ab23c934e0d66a15d7e9.jpg",
+    "index.html": "/Blood-Banking-System/index.html",
+    "main.75e4ff10.css.map": "/Blood-Banking-System/static/css/main.75e4ff10.css.map",
+    "main.e27c1b27.js.map": "/Blood-Banking-System/static/js/main.e27c1b27.js.map",
+    "453.ed55040a.chunk.js.map": "/Blood-Banking-System/static/js/453.ed55040a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.75e4ff10.css",
+    "static/js/main.e27c1b27.js"
+  ]
+}
