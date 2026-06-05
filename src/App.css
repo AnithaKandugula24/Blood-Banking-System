@@ -1,0 +1,320 @@
+.header-container {
+  background: red;
+}
+
+.header-container a{
+  color: white !important;
+}
+
+.header-container a.active{
+  color: white;
+  font-weight: bold;
+}
+.navbar-container{
+  position: relative;
+}
+.navbar-container > div{
+  position: absolute;
+  right: 5px;
+}
+.service-container{
+  background: red;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+.service-title{
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.service-card{
+  display:flex;
+  justify-content: center;
+}
+.w-80{
+  width:80%;
+}
+.card-title{
+  color: red;
+  font-weight: bold;
+}
+.about-img{
+  width: 500px;
+  height: 500px;
+}
+.contact-container{
+  margin-top:70px;
+}
+.white-color{
+  color: white;
+}
+
+.dashboard-page {
+  min-height: 100vh;
+  background: #f6f6f7;
+}
+
+.dashboard-main {
+  max-width: 980px;
+  padding-top: 22px;
+  padding-bottom: 34px;
+}
+
+.dashboard-title {
+  text-align: center;
+  margin-bottom: 14px;
+  color: #1f2933;
+}
+
+.backend-offline-banner {
+  margin: 4px auto 14px;
+  border: 1px solid #f0b2b9;
+  background: #fff1f3;
+  color: #b0212d;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dashboard-panel {
+  background: #ffffff;
+  border: 1px solid #eceef2;
+  border-radius: 8px;
+}
+
+.stat-panel {
+  padding: 12px;
+}
+
+.stat-label {
+  margin: 0;
+  font-size: 11px;
+  color: #8a9099;
+}
+
+.stat-value {
+  margin: 4px 0 0;
+  font-weight: 700;
+  color: #263241;
+}
+
+.stat-status {
+  margin: 4px 0 0;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.dashboard-section {
+  margin-top: 16px;
+}
+
+.section-kicker {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: #9aa0aa;
+}
+
+.dashboard-blood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.blood-panel {
+  text-align: center;
+  padding: 8px 6px;
+}
+
+.blood-group {
+  margin: 0;
+  color: #cc2f3a;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.blood-donors {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #8a9099;
+}
+
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.request-list {
+  padding: 8px 10px;
+}
+
+.request-row {
+  display: grid;
+  grid-template-columns: 8px 32px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.request-row:last-child {
+  border-bottom: 0;
+}
+
+.request-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.blood-pill {
+  font-size: 12px;
+  font-weight: 700;
+  color: #cc2f3a;
+  background: #fbe9eb;
+  border-radius: 6px;
+  padding: 4px 6px;
+  text-align: center;
+}
+
+.request-person h6 {
+  margin: 0;
+  font-size: 13px;
+  color: #263241;
+}
+
+.request-person p {
+  margin: 1px 0 0;
+  font-size: 11px;
+  color: #9097a1;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 3px 8px;
+  border: 1px solid transparent;
+}
+
+.emergency-list {
+  display: grid;
+  gap: 8px;
+}
+
+.emergency-panel {
+  padding: 10px;
+  background: #fff4f4;
+  border-color: #f4d8db;
+}
+
+.emergency-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emergency-top h6 {
+  margin: 0;
+  color: #be1f2d;
+  font-size: 13px;
+}
+
+.emergency-top span {
+  color: #9aa0aa;
+  font-size: 11px;
+}
+
+.emergency-bottom {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.emergency-group {
+  background: #f9dde0;
+  color: #be1f2d;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 4px;
+}
+
+.emergency-bottom p {
+  margin: 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.dashboard-footer {
+  background: #c20f19;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 12px;
+}
+
+.dashboard-footer p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.success {
+  color: #1f9d55;
+  background: #ecf9f0;
+  border-color: #c8efd5;
+}
+
+.warning {
+  color: #d08700;
+  background: #fff9e8;
+  border-color: #f8e6b8;
+}
+
+.danger {
+  color: #cf2e3e;
+  background: #ffeef0;
+  border-color: #f8c7ce;
+}
+
+.info {
+  color: #2062d6;
+  background: #eef4ff;
+  border-color: #cad9ff;
+}
+
+@media (max-width: 992px) {
+  .dashboard-stats-grid,
+  .dashboard-blood-grid,
+  .dashboard-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-stats-grid,
+  .dashboard-blood-grid,
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-main {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .dashboard-footer p {
+    font-size: 12px;
+  }
+}
