@@ -1,5 +1,5 @@
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import OurTeam from "./pages/OurTeam";
 import About from "./pages/About";
@@ -13,7 +13,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/our-team" element={<OurTeam />} />
@@ -22,7 +22,7 @@ function App() {
         <Route path="/donor-request" element={<DonorRequest />}/>
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
