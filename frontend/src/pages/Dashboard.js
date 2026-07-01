@@ -18,19 +18,29 @@ const Dashboard = () => {
   const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(buildApiUrl('api/dashboard'))
-      .then((resp) => {
-        const payload = resp?.data?.data;
-        if (payload) {
-          setDashboardData(payload);
-          setIsOffline(false);
-        }
-      })
-      .catch(() => {
-        setIsOffline(true);
-      });
-  }, []);
+  console.log("Calling:", buildApiUrl("api/dashboard"));
+
+  axios
+    .get(buildApiUrl("api/dashboard"))
+    .then((resp) => {
+      console.log("SUCCESS:", resp.data);
+
+      const payload = resp?.data?.data;
+
+      if (payload) {
+        console.log("Setting offline = false");
+        setDashboardData(payload);
+        setIsOffline(false);
+      } else {
+        console.log("No payload received");
+      }
+    })
+    .catch((error) => {
+      console.error("ERROR:", error);
+      console.log("Setting offline = true");
+      setIsOffline(true);
+    });
+}, []);
 
   const stats = useMemo(() => {
     return [
