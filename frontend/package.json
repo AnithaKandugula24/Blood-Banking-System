@@ -4,7 +4,7 @@
   
   "version": "0.1.0",
   
-  "homepage": "https://anithakandugula24.github.io/Blood-Banking-System",
+  "homepage": ".",
   
   "private": true,
   
@@ -56,8 +56,7 @@
   
   "scripts": {
   
-    
-  "start": "node backend/index.js",
+  "start": "react-scripts start",
   
     
   "client:start": "react-scripts start",
@@ -82,9 +81,6 @@
   
     
   "eject": "react-scripts eject",
-
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
   
   },
   
