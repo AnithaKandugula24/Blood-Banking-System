@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "blood-bank-management-system": "file:..",
     "body-parser": "^2.2.2",
     "concurrently": "^9.2.1",
     "cors": "^2.8.6",
