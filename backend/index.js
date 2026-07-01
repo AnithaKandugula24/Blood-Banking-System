@@ -18,7 +18,7 @@ const clientOrigins = (process.env.CLIENT_ORIGIN || '*')
 
 app.use(
     cors({
-        origin: clientOrigins.includes('*') ? true : clientOrigins
+        origin: clientOrigins.includes('https://blood-banking-system-5k12.vercel.app/') ? true : clientOrigins
     })
 );
 
