@@ -17,16 +17,20 @@ const path = require('path');
 const cors = require('cors');
 
 const PORT = Number(process.env.PORT) || 4000;
+
 const clientOrigins = (process.env.CLIENT_ORIGIN || '*')
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);
 
-app.use(
-    cors({
-        origin: clientOrigins.includes('https://blood-banking-system-5k12.vercel.app/') ? true : clientOrigins
-    })
-);
+const clientOrigins = process.env.CLIENT_ORIGIN
+  ? process.env.CLIENT_ORIGIN.split(",").map(origin => origin.trim())
+  : [];
+
+app.use(cors({
+  origin: clientOrigins,
+  credentials: true
+}));
 
 app.use(express.json());
 
