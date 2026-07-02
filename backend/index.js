@@ -1,85 +1,90 @@
 require('dotenv').config();
+
 console.log({
   DB_HOST: process.env.DB_HOST,
   DB_PORT: process.env.DB_PORT,
   DB_NAME: process.env.DB_NAME,
   DB_USER: process.env.DB_USER
 });
+
 const express = require('express');
 const sequelize = require('./config/database');
 const serviceRoutes = require('./Routes/serviceRoutes');
 const teamRouting = require('./Routes/ourTeamRouting');
 const contactRouting = require('./Routes/contactRouting');
-const DonorRouting = require('./Routes/DonorRouting');  
+const DonorRouting = require('./Routes/DonorRouting');
 const dashboardRouting = require('./Routes/dashboardRouting');
-const app = express();
 const path = require('path');
 const cors = require('cors');
 
+const app = express();
 const PORT = Number(process.env.PORT) || 4000;
 
-const clientOrigins = (process.env.CLIENT_ORIGIN || '*')
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
-
-const clientOrigins = process.env.CLIENT_ORIGIN
-  ? process.env.CLIENT_ORIGIN.split(",").map(origin => origin.trim())
-  : [];
-
+// Enable CORS (Allow your Vercel frontend)
 app.use(cors({
-  origin: clientOrigins,
+  origin: 'https://blood-banking-system-5k12.vercel.app',
   credentials: true
 }));
 
 app.use(express.json());
 
-
+// Import Models
 require('./Models/service');
 require('./Models/teams');
 require('./Models/Contact');
 require('./Models/Donor');
 
+// Health Check
 app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok' });
+  res.status(200).json({ status: 'ok' });
 });
 
-app.use('/image', express.static(path.join(__dirname, 'public/image/')));
+// Static Images
+app.use('/image', express.static(path.join(__dirname, 'public/image')));
 
+// API Routes
 app.use('/api', serviceRoutes);
 app.use('/api/team', teamRouting);
 app.use('/api/contact', contactRouting);
 app.use('/api/donor', DonorRouting);
 app.use('/api/dashboard', dashboardRouting);
 
+// Serve React Build (if hosting frontend from backend)
 if (process.env.NODE_ENV === 'production') {
-    const buildPath = path.resolve(__dirname, '../build');
-    app.use(express.static(buildPath));
-    app.get(/^(?!\/api|\/image).*/, (req, res) => {
-        res.sendFile(path.join(buildPath, 'index.html'));
-    });
+  const buildPath = path.resolve(__dirname, '../build');
+
+  app.use(express.static(buildPath));
+
+  app.get(/^(?!\/api|\/image).*/, (req, res) => {
+    res.sendFile(path.join(buildPath, 'index.html'));
+  });
 }
 
+// Global Error Handler
 app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).json({ error: 'Internal server error' });
+  console.error(err);
+  res.status(500).json({
+    status: false,
+    message: err.message || 'Internal Server Error'
+  });
 });
 
+// Start Server
 const startServer = async () => {
-    try {
-        await sequelize.authenticate();
-        console.log('Database connection established.');
+  try {
+    await sequelize.authenticate();
+    console.log('Database connection established.');
 
-        await sequelize.sync();
-        console.log('Database & tables synced!');
+    await sequelize.sync();
+    console.log('Database & tables synced!');
 
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
-    } catch (error) {
-        console.error('Failed to start server:', error);
-        process.exit(1);
-    }
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
 };
 
 startServer();
